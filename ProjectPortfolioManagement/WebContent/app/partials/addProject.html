@@ -1,0 +1,257 @@
+<html ng-app="project">
+<head>
+<script src="app/js/angular-1.3.15/angular.js"></script>
+</head>
+
+<body>
+
+	<br />
+
+	<form name="addProject" ng-controller="addProjectCntrl"
+		ng-submit="addNewProject()" method="post">
+
+		<table>
+			
+			<tr ng-controller="selectPortfolioCntrl">
+		Select Portfolio:
+				 <select ng-model="newProject.portfolioName" >
+			<option ng:repeat="portfolioData in portfolioList"
+				value="{{portfolioData}}">{{portfolioData}}</option>
+				</select> 
+				<span style="color: red;"
+					ng-show="addProject.portfolioName.$error.required">* Select
+						the Portfolio</span></td>
+			</tr>
+			<tr>
+				<td>Project Id:</td>
+				<td><input type="number" name="projectId"
+					ng-model="newProject.projectId" placeholder="Enter project Id" /></td>
+			</tr>
+
+			<tr>
+				<td>Name</td>
+				<td><input type="text" placeholder="Enter the Name"
+					name="projectName" ng-model="newProject.projectName" required>
+					<span style="color: red;"
+					ng-show="addProject.projectName.$error.required">* Enter our
+						name</span></td>
+			</tr>
+
+			<tr>
+				<td>Type</td>
+				<td><select name="projectType"
+					ng-model="newProject.projectType" required>
+						<option value="greenField">Green Field</option>
+						<option value="maintenance">Maintenance</option>
+						<option value="support">Support</option>
+						<option value="qa">QA</option>
+						<option value="ux">UX</option>
+				</select> <span style="color: red;"
+					ng-show="addProject.projectType.$error.required">* Select
+						the type</span>
+			</tr>
+
+			<tr>
+				<td>Start Date</td>
+				<td><input type="date" name="projectStartDate"
+					ng-model="newProject.projectStartDate" required> <span
+					style="color: red;" ng-show="addProject.startDate.$error.date">*
+						Invalid Date</span> <span style="color: red;"
+					ng-show="addProject.startDate.$error.required">* Enter Start
+						Date</span> </td>
+			</tr>
+
+			<tr>
+				<td>End Date</td>
+				<td><input type="date" name="projectEndDate"
+					ng-model="newProject.projectEndDate" required> <span
+					style="color: red;" ng-show="addProject.endDate.$error.date">*
+						Invalid Date</span> <span style="color: red;"
+					ng-show="addProject.endDate.$error.required">* Enter End
+						Date</span> </td>
+			</tr>
+
+			<tr>
+				<td>Visibility Duration</td>
+				<td><input type="number"
+					placeholder="Enter the visibility duration"
+					name="projectVisibleDuration"
+					ng-model="newProject.projectVisibleDuration" required> <span
+					style="color: red;"
+					ng-show="addProject.projectVisibleDuration.$error.required">*
+						Enter visibility duration</span> <span style="color: red;"
+					ng-show="addProject.projectVisibleDuration.$error.number">*
+						Enter valid number</span>
+			</tr>
+
+			<tr>
+				<td>Status</td>
+				<td><select name="projectStatus"
+					ng-model="newProject.projectStatus" required>
+						<option value="tentative">Tentative</option>
+						<option value="active">Active</option>
+						<option value="inactive">Inactive</option>
+						<option value="closed">Closed</option>
+						<option value="completed">Completed</option>
+				</select> <span style="color: red;"
+					ng-show="addProject.projectStatus.$error.required">* Select
+						the status</span>
+				<td>
+			</tr>
+
+			<tr>
+				<td>Methodology</td>
+				<td><select name="projectMethodology"
+					ng-model="newProject.projectMethodology" required>
+						<option value="waterfall">Waterfall</option>
+						<option value="iterative">Iterative</option>
+						<option value="scrum">Scrum</option>
+						<option value="agile">Agile</option>
+						<option value="kanban">kanban</option>
+						<option value="adhoc">Adhoc</option>
+				</select> <span style="color: red;"
+					ng-show="addProject.projectMethodology.$error.required">*
+						Select the methodology</span>
+			</tr>
+
+			<tr>
+				<td>Description</td>
+				<td><textarea name="projectDescription" rows="4" cols="50"
+						ng-model="newProject.projectDescription"></textarea></td>
+
+			</tr>
+
+			<tr>
+				<td>Tools</td>
+				<td><select name="projectTools"
+					ng-model="newProject.projectTools" required>
+						<option value="notSelected">Select Tools</option>
+				</select> <span style="color: red;"
+					ng-show="addProject.projectTools.$error.required">* Select
+						the tools</span></td>
+			</tr>
+
+			<tr>
+				<td>Project Manager(s)</td>
+				<td><input type="text" name="projectManager"
+					placeholder="Enter the Manager Name"
+					ng-model="newProject.projectManager" required> <span
+					style="color: red;"
+					ng-show="addProject.projectManager.$error.required">* Enter
+						the Manager Name</span> <select name="projectManagerType"
+					ng-model="newProject.projectManagerType" required>
+						<option value="Dev">Development</option>
+						<option value="QA">Quality Analysis</option>
+						<option value="Tech">Technical Support</option>
+				</select> <span style="color: red;"
+					ng-show="addProject.projectManagerType.$error.required">*
+						Select manager type</span></td>
+			</tr>
+
+			<tr>
+				<td>Deputy Manager</td>
+				<td><input type="text" name="projectDeputyManager"
+					placeholder="Enter Deputy Manager Name"
+					ng-model="newProject.projectDeputyManager" required> <span
+					style="color: red;"
+					ng-show="addProject.projectDeputyManager.$error.required">*
+						Enter Deputy Manager Name</span></td>
+			</tr>
+
+			<tr>
+				<td>Assistance Manager</td>
+				<td><input type="text" placeholder="Enter Ass. manager name"
+					name="projectAssistantManager"
+					ng-model="newProject.projectAssistantManager" required> <span
+					style="color: red;"
+					ng-show="addProject.projectAssistantManager.$error.required">*
+						Enter Assi. manager name</span>
+			</tr>
+
+			<tr>
+				<td>Client</td>
+				<td><input type="text" name="projectClient"
+					placeholder="Enter client name" ng-model="newProject.projectClient"
+					required> <span style="color: red;"
+					ng-show="addProject.projectClient.$error.required">* Enter
+						client name</span>
+			</tr>
+
+			<tr>
+				<td>Client POC</td>
+				<td><input type="text" name="projectClientPoc"
+					placeholder="Enter client POC"
+					ng-model="newProject.projectClientPoc" required> <span
+					style="color: red;"
+					ng-show="addProject.projectClientPoc.$error.required">*
+						Enter Client POC</span>&nbsp; Client Purpose&nbsp;&nbsp;<input
+					type="text" name="projectClientPurpose"
+					placeholder="Enter Client Purpose"
+					ng-model="newProject.projectClientPurpose" required> <span
+					style="color: red;"
+					ng-show="addProject.projectClientPurpose.$error.required">*
+						Enter Client Purpose</span>
+			</tr>
+
+			<tr>
+				<td>Estimate Efforts</td>
+				<td><input type="number" name="projectEstimateEfforts"
+					placeholder="Enter Estimate Efforts"
+					ng-model="newProject.projectEstimateEfforts" required> <span
+					style="color: red;"
+					ng-show="addProject.projectEstimateEfforts.$error.required">*
+						Enter Estimate Efforts</span> <span style="color: red;"
+					ng-show="addProject.projectEstimateEfforts.$error.number">*
+						Invalid Efforts</span>
+			</tr>
+
+			<tr>
+				<td>Consultant Name</td>
+				<td><input type="text" name="projectConsultantName"
+					placeholder="Enter Consultanat Name"
+					ng-model="newProject.projectConsultantName" required> <span
+					style="color: red;"
+					ng-show="addProject.projectConsultantName.$error.required">*
+						Enter Consultanat Name</span></td>
+			</tr>
+
+			<tr>
+				<td>Consultant Role</td>
+				<td><input type="text" name="projectRole"
+					placeholder="Enter Consultant Role"
+					ng-model="newProject.projectRole" required> <span
+					style="color: red;"
+					ng-show="addProject.projectRole.$error.required">* Enter
+						Consultant Role</span></td>
+			<tr>
+				<td>Consultant Duration</td>
+				<td><input type="number" name="projectDuration"
+					placeholder="Enter Consultant Duration"
+					ng-model="newProject.projectDuration" required> <span
+					style="color: red;"
+					ng-show="addProject.projectDuration.$error.required">* Enter
+						Consultant Duration</span> <span style="color: red;"
+					ng-show="addProject.projectDuration.$error.number">* Invalid
+						Duration</span></td>
+			</tr>
+
+			<tr>
+				<td>Budget</td>
+				<td><input type="number" placeholder="Enter the Budget"
+					name="projectBudget" ng-model="newProject.projectBudget" required>
+					<span style="color: red;"
+					ng-show="addProject.projectBudget.$error.required">* Enter
+						the Budget</span> <span style="color: red;"
+					ng-show="addProject.projectBudget.$error.number">* Invalid
+						Budget</span>
+			</tr>
+			<tr>
+			</tr>
+
+		</table>
+		<br> <input type="submit" value=" Save " name="save">&nbsp;&nbsp;
+		<input type="reset" value=" Clear ">
+
+	</form>
+</body>
+</html>

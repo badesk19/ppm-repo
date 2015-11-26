@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="project">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="validate.js">
+	
+</script>
+<link rel="stylesheet" type="text/css" href="ppmStyle1.css"></link>
+</head>
+<body>
+
+	<div ng-controller="selectPortfolioCntrl">
+
+		<h1 id="heading1">
+			<b>Select Portfolios</b>
+		</h1>
+
+		<br> Select Portfolio <select ng-model="portfolioName"
+			ng-change="getProjectDetails(portfolioName)">
+
+			<option ng:repeat="portfolioData in portfolioList"
+				value="{{portfolioData}}">{{portfolioData}}</option>
+		</select> <br /> <br />
+		<table border="1">
+			<tr>
+
+				<th>Portfolio Name</th>
+
+
+				<th>Project Id</th>
+
+				<th>Project Name</th>
+				<th align="right">Actions</th>
+			</tr>
+
+
+			<tr ng-model="projectDetail" ng-repeat="projectInfo in projectData">
+				<td>{{projectInfo.portfolioName}}</td>
+				<td ng-model="projectId">{{projectInfo.projectId}}</td>
+				<td>{{projectInfo.projectName}}</td>
+				<td><input type="button" value="View"
+					ng-click=getProject(projectInfo.projectId)></td>
+				<td><input type="button" value="Delete"
+					ng-click=deleteProject(projectInfo.projectId)></td>
+				<td><input type="button" value="Add Event"
+					ng-click=addEvent(projectInfo.projectId)></td>
+			</tr>
+
+		</table>
+</body>
+</html>

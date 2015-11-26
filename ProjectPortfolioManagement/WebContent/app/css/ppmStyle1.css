@@ -1,0 +1,59 @@
+@CHARSET "ISO-8859-1";
+
+h1{
+		text-align:center;
+		font-size:40px;
+		font-stretch:ultra-expanded;
+		font-variant: small-caps;
+	}
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  	background-color: #E0EBEB;
+}
+
+li {
+    float: left;
+}
+a:link, a:visited {
+    display: block;
+    width: 200px;
+    font-weight: bold;
+    color: black;
+   /*  background-color: skyblue; */
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+a:hover, a:active {
+    background-color: #52A3CC;
+}
+
+header{
+	background-color: #4682B4;
+	color:white;
+	 padding:5px;
+	 text-align: center;
+}
+	
+#heading1{
+	text-align: center;
+	font-size: 35px;
+	color: #4682B4;
+}	
+form{
+	font-size: 20px;
+}
+#addPortfolio{
+	background-color: #F5FAFF;
+	margin-left: 600px;
+	margin-right: 600px;
+	padding: 25px;
+	
+	
+	}

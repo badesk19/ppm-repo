@@ -1,0 +1,58 @@
+<html>
+<head>
+
+
+</head>
+<body>
+<div ng-controller="addProjectEventCntrl">
+​
+<form name="addEvent" ng-submit="addProjectEvent()" method="post">
+
+
+	<table>
+		
+		<tr>
+			<td>
+				<label>Title</label>
+			</td>	
+			<td>
+				<input type="text" name="eventTitle" placeholder="Enter Event Title" ng-model="newEvent.eventName" required>
+				<span style="color: red;" ng-show="addEvent.eventName.$error.required">*Enter Event Title</span>
+			</td>
+			<td>
+			<input name="newEvent[projectId]" ng-model="newEvent.projectId" ng-init="newEvent.projectId=projectId" type="hidden">
+			
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<label>Event Type</label>
+			</td>	
+			<td>
+				<input type="text" name="eventType" placeholder="Enter event type" ng-model="newEvent.eventType" required>
+				<span style="color: red;" ng-show="newEvent.eventType.$error.required">* Enter event type</span>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<label>Event Description</label>
+			</td>	
+			<td>
+				<textarea placeholder="Enter Event Description" rows="3"  name="eventDescription" ng-model="newEvent.eventDescription"></textarea>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<input type="submit" value="Add">
+			</td>	
+		</tr>
+		
+	</table> 
+	</form> 
+</div>
+
+</body>
+</html>

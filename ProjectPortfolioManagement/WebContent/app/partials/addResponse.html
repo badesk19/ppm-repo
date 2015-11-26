@@ -1,0 +1,30 @@
+<html ng-app="project">
+<head><script src="app/js/angular-1.3.15/angular.js"></script></head>
+
+<body>
+<form name="response" ng-controller="addProjectResponseCntrl" ng-submit="addProjectResponse()" method="post">
+<b>User Name</b>
+<br>
+<input type="text" name="userName" placeholder="Enter user Name" ng-model="newResponse.userName" required>
+<span  style="color: red;" ng-show="response.userName.$error.required">* Enter Username</span>
+
+<br>
+<b>Message</b>
+<br>
+<textarea rows="5" cols="60" name="message" placeholder="Enter the response message" ng-minlength="10" ng-maxlength="100" ng-model="newResponse.message" required></textarea>
+<span style="color: red;" ng-show="response.message.$error.required">Enter the response message</span>
+<span style="color: red;" ng-show="response.message.$error.minlength">Response should have minimum 10 characters</span>
+<span style="color: red;" ng-show="response.message.$error.maxlength">Response should have maximum 100 characters </span>
+<br>
+
+<input type="submit" value="Add"><br>
+<a href="#/projectEvent"/>
+<button>Cancel</button></a>
+
+</form>
+
+
+ 
+
+</body>
+</html>
